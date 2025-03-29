@@ -10,7 +10,7 @@ An advanced Python-based network sniffer that captures and analyzes network traf
 - Supports multiple protocol options (HTTP, HTTPS, FTP, SSH, DNS, SMTP, POP3)
 
 ## Requirements
-Before running the sniffer, ensure you have the necessary dependencies installed:
+Before running the sniffer, ensure you have the necessary dependencies installed (For Linux):
 
 ```bash
 sudo apt update
