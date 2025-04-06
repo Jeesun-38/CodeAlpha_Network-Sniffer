@@ -1,6 +1,6 @@
 # 🛡️ Zetsu - Network Packet Sniffer
 
-Zetsu - Network Packet Sniffer is a sleek, cross-platform packet sniffer built in Python with a modern GUI. It can capture and display HTTP, DNS, TCP, UDP, and even attempt to decrypt HTTPS traffic with mitmproxy integration. Tailored for analysts, developers, and cybersecurity enthusiasts.
+Zetsu - Network Packet Sniffer is a sleek, cross-platform (linux & Mac) packet sniffer built in Python with a modern GUI. It can capture and display HTTP, DNS, TCP, UDP, and even attempt to decrypt HTTPS traffic with mitmproxy integration. Tailored for analysts, developers, and cybersecurity enthusiasts.
 
 ---
 
@@ -17,19 +17,13 @@ Zetsu - Network Packet Sniffer is a sleek, cross-platform packet sniffer built i
 
 ---
 
-## 📸 Interface Preview
-
-> 🖼️ *Coming soon...*
-
----
-
 ## 🧪 How to Use
 
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/yourusername/zetsu-packet-sniffer.git
-cd zetsu-packet-sniffer
+git clone https://github.com/Jeesun-38/CodeAlpha_Network-Sniffer.git && cd CodeAlpha_Network-Sniffer
+
 ```
 
 2. **Install dependencies**
@@ -41,7 +35,7 @@ pip install scapy psutil mitmproxy
 3. **Run as admin/root** (required for interface sniffing):
 
 ```bash
-sudo python zetsu.py
+sudo python sniffer.py / sudo python3 sniffer.py
 ```
 
 4. **Trust the mitmproxy cert** (for HTTPS decryption):
@@ -53,7 +47,7 @@ sudo python zetsu.py
 
 ## 📦 Supported Protocols
 
-Here's what **Zetsu** can detect and display during a packet sniffing session:
+Here's what **Zetsu-Network Packet Sniffer** can detect and display during a packet sniffing session:
 
 | Protocol     | Captured ✅ | Readable Data 📖 | Notes |
 |--------------|-------------|------------------|-------|
@@ -71,14 +65,14 @@ Here's what **Zetsu** can detect and display during a packet sniffing session:
 
 ## 💡 Notes
 
-- You must run Zetsu with elevated privileges to capture packets.
+- You must run with elevated privileges to capture packets.
 - HTTPS interception only works if the mitmproxy certificate is trusted.
 
 ---
 
 ## 📁 Log Files
 
-Zetsu saves each session's log to a timestamped `.txt` file automatically.
+It saves each session's log to a timestamped `.txt` file automatically.
 You can also manually export logs using the GUI.
 
 ---
