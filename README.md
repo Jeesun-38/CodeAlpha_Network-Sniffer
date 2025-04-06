@@ -1,61 +1,88 @@
-# Advanced Network Sniffer
+# 🛡️ Zetsu - Network Packet Sniffer
 
-## Description
-An advanced Python-based network sniffer that captures and analyzes network traffic. This tool allows you to monitor packets on different ports and stores the captured data in an SQLite database for further analysis.
+Zetsu is a sleek, cross-platform packet sniffer built in Python with a modern GUI. It can capture and display HTTP, DNS, TCP, UDP, and partially intercept HTTPS traffic with mitmproxy integration. Tailored for analysts, developers, and cybersecurity enthusiasts.
 
-## Features
-- Captures and logs network packets in real-time
-- Filters traffic based on protocol or port
-- Stores captured packet details in an SQLite database
-- Supports multiple protocol options (HTTP, HTTPS, FTP, SSH, DNS, SMTP, POP3)
+---
 
-## Requirements
-Before running the sniffer, ensure you have the necessary dependencies installed (For Linux):
+## ✨ Features
 
-```bash
-sudo apt update
-sudo apt install python3-pip
-pip3 install scapy
-```
+- ✅ Live packet capture on selected network interfaces
+- 🌐 Supports HTTP, DNS, TCP, UDP, and partial HTTPS sniffing
+- 🔍 Real-time filtering by protocol or keyword
+- 🔐 Mitmproxy integration for HTTPS interception
+- 📄 Toggleable raw payload display
+- 🧠 Auto-detects potential credentials in unencrypted traffic
+- 📊 Live packet counter with GUI status bar
+- 💾 Export captured logs to text files
 
-## Usage
-Run the script with `sudo` to capture packets on a specific network interface and port:
+---
 
-```bash
-sudo python3 advanced_network_sniffer.py -i <interface> -p <port_option>
-```
+## 📸 Interface Preview
 
-### Example:
-```bash
-sudo python3 advanced_network_sniffer.py -i eth0 -p 1
-```
-This will capture HTTP (port 80) traffic on the `eth0` interface.
+> 🖼️ *Coming soon...*
 
-### Available Port Options:
-| Option | Protocol | Port |
-|--------|----------|------|
-| 1      | HTTP     | 80   |
-| 2      | HTTPS    | 443  |
-| 3      | FTP      | 21   |
-| 4      | SSH      | 22   |
-| 5      | DNS      | 53   |
-| 6      | SMTP     | 25   |
-| 7      | POP3     | 110  |
+---
 
-## Viewing Captured Data
-Captured packets are stored in an SQLite database named `network_traffic.db`. You can view the data using the following command:
+## 🧪 Getting Started
+
+1. **Install requirements**
 
 ```bash
-sqlite3 network_traffic.db "SELECT * FROM packets;"
+pip install -r requirements.txt
 ```
 
-## Notes
-- Run the script with root privileges (`sudo`) as packet sniffing requires elevated permissions.
-- Ensure the selected network interface is in promiscuous mode if you want to capture all network traffic.
+2. **Install mitmproxy** *(optional, for HTTPS sniffing)*:
 
-## License
-This project is open-source and available for free use and modification.
+```bash
+pip install mitmproxy
+```
 
-## Contribution
-Feel free to submit issues or pull requests to improve the project!
+3. **Run as admin/root** *(required for capturing network traffic)*:
 
+```bash
+sudo python zetsu.py
+```
+
+4. **(Optional) Trust the mitmproxy certificate** *(to inspect HTTPS traffic)*:
+
+- Open a browser and go to `http://mitm.it` while mitmproxy is running.
+- Download and trust the certificate appropriate for your OS/device.
+
+---
+
+## 📦 Protocol Support Matrix
+
+Zetsu supports sniffing and logging across various network protocols. Here's a summary:
+
+| Protocol      | Captured ✅ | Readable Data 📖 | Notes                                                                 |
+|---------------|-------------|------------------|-----------------------------------------------------------------------|
+| **HTTP**      | ✅ Yes      | ✅ Yes            | Full access: URLs, headers, payloads, potential credentials            |
+| **HTTPS**     | ✅ Yes      | ❌ No by default  | Encrypted. Mitmproxy enables interception with cert injection         |
+| **DNS**       | ✅ Yes      | ✅ Yes            | Extracts domain name queries                                          |
+| **FTP**       | ✅ Yes      | ✅ Yes            | If unencrypted, usernames/passwords may be visible                    |
+| **SMTP/POP3** | ✅ Yes      | ⚠️ Partial        | Only visible if server doesn't use encryption (many use SSL/TLS)      |
+| **TCP**       | ✅ Yes      | ✅ Yes            | General packet info + destination ports + raw payload if available    |
+| **UDP**       | ✅ Yes      | ✅ Yes            | Similar to TCP, best results with DNS or known protocols              |
+
+> 🔐 **Tip:** For full HTTPS sniffing, trust the mitmproxy cert from `http://mitm.it`. [More info →](https://docs.mitmproxy.org/stable/concepts-certificates/)
+
+---
+
+## 📁 Logs & Exporting
+
+Zetsu automatically saves session logs to a timestamped `.txt` file.
+You can also manually export logs via the GUI with the "Export Logs" button.
+
+---
+
+## ⚙️ Tech Stack
+
+- 🐍 Built using [Scapy](https://scapy.net) for packet manipulation
+- 🌐 HTTPS proxying via [Mitmproxy](https://mitmproxy.org)
+- 💻 GUI crafted with [Tkinter](https://wiki.python.org/moin/TkInter)
+
+---
+
+## 📜 License
+
+MIT License. Contributions, forks, and suggestions welcome!
