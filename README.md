@@ -17,33 +17,24 @@ Zetsu is a sleek, cross-platform packet sniffer built in Python with a modern GU
 
 ---
 
-## 📸 Interface Preview
-
-> 🖼️ *Coming soon...*
-
----
-
 ## 🧪 Getting Started
 
-1. **Install requirements**
+ **Install requirements**
 
-```bash
-pip install -r requirements.txt
-```
 
-2. **Install mitmproxy** *(optional, for HTTPS sniffing)*:
+1. **Install mitmproxy** *(optional, for HTTPS sniffing)*:
 
 ```bash
 pip install mitmproxy
 ```
 
-3. **Run as admin/root** *(required for capturing network traffic)*:
+2. **Run as admin/root** *(required for capturing network traffic)*:
 
 ```bash
 sudo python zetsu.py
 ```
 
-4. **(Optional) Trust the mitmproxy certificate** *(to inspect HTTPS traffic)*:
+3. **(Optional) Trust the mitmproxy certificate** *(to inspect HTTPS traffic)*:
 
 - Open a browser and go to `http://mitm.it` while mitmproxy is running.
 - Download and trust the certificate appropriate for your OS/device.
