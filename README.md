@@ -1,6 +1,6 @@
 # 🛡️ Zetsu - Network Packet Sniffer
 
-Zetsu is a sleek, cross-platform packet sniffer built in Python with a modern GUI. It can capture and display HTTP, DNS, TCP, UDP, and partially intercept HTTPS traffic with mitmproxy integration. Tailored for analysts, developers, and cybersecurity enthusiasts.
+Zetsu Packet sniffer is a sleek, cross-platform packet sniffer built in Python with a modern GUI. It can capture and display HTTP, DNS, TCP, UDP, and partially intercept HTTPS traffic with mitmproxy integration. Tailored for analysts, developers, and cybersecurity enthusiasts.
 
 ---
 
